@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { getOne, getAll } from "./getAllHandler";
+import "./socket";
 
 // const  = studenthandler;
 

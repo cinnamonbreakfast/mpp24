@@ -1,0 +1,18 @@
+.window {
+  background-color: #818181;
+
+  .titleBar {
+    padding: 10px;
+
+    h3 {
+      margin: 0px;
+      padding: 0px;
+      text-transform: uppercase;
+    }
+  }
+
+  .messagesArea {
+    height: 80vh;
+    background: #333 url("/pattern.png");
+  }
+}

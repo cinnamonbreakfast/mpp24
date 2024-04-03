@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+
+  .messageBubble {
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 30%;
+    margin-bottom: 10px;
+
+    &.sent {
+      background-color: #cbcbcb;
+      align-self: flex-end;
+    }
+
+    &.received {
+      background-color: cadetblue;
+      align-self: flex-start;
+    }
+  }
+}

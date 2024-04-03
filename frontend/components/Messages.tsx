@@ -1,6 +1,7 @@
 "use client";
-import { useChatStore } from "@/core/store";
+import { Message, useChatStore } from "@/core/store";
 import styles from "./Messages.module.scss";
+import { message } from "antd";
 
 interface MessageBubbleProps {
   type: "received" | "sent";
@@ -19,8 +20,18 @@ export const MessageBubble = ({
 };
 
 export const Messages = () => {
+  const { messages, sendMessage } = useChatStore((state) => state);
+
   return (
     <div className={styles.container}>
+      {messages.map((e: Message, i: number) => (
+        <MessageBubble
+          key={i}
+          type={e.type}
+          message={e.message}
+          timestamp={e.timestamp}
+        />
+      ))}
       {/* <MessageBubble
         type="sent"
         message="hello world!!"

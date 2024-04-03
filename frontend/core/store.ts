@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-interface Message {
+export interface Message {
   type: "sent" | "received";
   message: string;
   timestamp: Date;

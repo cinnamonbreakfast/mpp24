@@ -11,5 +11,10 @@ wss.on("connection", function connection(ws) {
     console.log("received: %s", data);
   });
 
-  ws.send("welcome client!");
+  ws.send(
+    JSON.stringify({
+      message: "Hello from the backend!",
+      type: "received",
+    })
+  );
 });

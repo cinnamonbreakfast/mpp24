@@ -1,18 +1,30 @@
 .window {
-  background-color: #818181;
+  max-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "chatList chatWindow info"
+    "chatList messageBox info";
+  grid-auto-columns: 360px 1fr;
+  grid-template-rows: minmax(0, 1fr) 60px;
 
-  .titleBar {
+  .chatList {
+    border-right: 1px solid #efefef;
+    width: 360px;
     padding: 10px;
+    grid-area: chatList;
 
-    h3 {
+    h2 {
       margin: 0px;
       padding: 0px;
-      text-transform: uppercase;
+      margin-bottom: 20px;
     }
   }
 
   .messagesArea {
-    height: 80vh;
-    background: #333 url("/pattern.png");
+    grid-area: chatWindow;
+  }
+
+  .messageBoxArea {
+    grid-area: messageBox;
   }
 }

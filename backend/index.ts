@@ -1,12 +1,14 @@
+import "./configs";
+
 import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+
 import cors from "cors";
 import { getOne, getAll } from "./getAllHandler";
 import "./socket";
+import { getUser, loginUser, registerUser } from "./controller/users";
+import { globalErrorHandler } from "./exception/globalErrorHandler";
 
 // const  = studenthandler;
-
-dotenv.config();
 
 var corsOptions = {
   origin: "*",
@@ -17,8 +19,18 @@ const app: Express = express();
 app.use(cors(corsOptions));
 const port = process.env.PORT;
 
+app.use(express.json());
+
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" }).status(200);
+});
 app.get("/", getAll);
 app.get("/one", getOne);
+app.post("/register", registerUser);
+app.post("/login", loginUser);
+app.get("/get/:id", getUser);
+
+app.use(globalErrorHandler);
 
 app.listen(port, () => {
   console.group();

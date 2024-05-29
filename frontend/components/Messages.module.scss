@@ -2,21 +2,61 @@
   display: flex;
   flex-direction: column;
   padding: 25px;
+  gap: 5px;
+  overflow-y: auto;
+  height: 100%;
+
+  .beginningOfTime {
+    text-align: center;
+    border-bottom: 1px solid rgba(#efefef, 0.6);
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+
+    h2 {
+      margin: 0px;
+      padding: 0px;
+      line-height: 35px;
+    }
+
+    p {
+      margin: 0px;
+      padding: 0px;
+      color: #818181;
+      font-size: 14px;
+    }
+  }
 
   .messageBubble {
-    border-radius: 10px;
-    padding: 15px;
-    max-width: 30%;
-    margin-bottom: 10px;
+    display: flex;
+    max-width: 60%;
+    gap: 10px;
+
+    p {
+      font-size: 12px;
+      color: #cbcbcb;
+    }
+
+    div {
+      border-radius: 20px;
+      padding: 10px 14px;
+    }
 
     &.sent {
-      background-color: #cbcbcb;
       align-self: flex-end;
+      flex-direction: row-reverse;
+
+      div {
+        background-color: #cbcbcb;
+      }
     }
 
     &.received {
-      background-color: cadetblue;
       align-self: flex-start;
+
+      div {
+        background-color: #9fa8eb;
+        color: #fff;
+      }
     }
   }
 }

@@ -10,6 +10,7 @@ export interface Message {
 interface ChatState {
   messages: Message[];
   sendMessage: (message: Message) => void;
+  addMessage: (message: Message) => void;
 }
 
 export const useChatStore = create<ChatState>()(
@@ -17,6 +18,7 @@ export const useChatStore = create<ChatState>()(
     (set, get) => ({
       messages: [],
       sendMessage: (message) => set({ messages: [...get().messages, message] }),
+      addMessage: (message) => set({ messages: [...get().messages, message] }),
     }),
     {
       name: "chat-storage", // name of the item in the storage (must be unique)

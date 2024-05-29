@@ -1,0 +1,49 @@
+$-avatar-width: 48px;
+$-card-height: 68px;
+$-card-padding: 10px;
+
+.chatList {
+  height: 100%;
+
+  .chatCard {
+    height: $-card-height;
+    padding: $-card-padding;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 15px;
+
+    &:hover {
+      background-color: rgba(#cbcbcb, 0.2);
+      cursor: pointer;
+    }
+
+    img {
+      width: $-avatar-width;
+      height: $-avatar-width;
+      border-radius: calc($-avatar-width / 2);
+    }
+
+    .chatInfo {
+      padding-left: $-card-padding;
+
+      p {
+        padding: 0px;
+        margin: 0px;
+
+        &.username {
+          font-size: 15px;
+          line-height: 20px;
+          margin-bottom: 4px;
+        }
+
+        &.lastMessage {
+          font-size: 12px;
+          line-height: 16px;
+          color: #818181;
+        }
+      }
+    }
+  }
+}

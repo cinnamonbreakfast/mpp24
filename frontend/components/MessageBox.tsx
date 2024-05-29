@@ -9,33 +9,33 @@ const MessageBox = () => {
   const socketInstance = useRef<WebSocket>();
 
   const _handleForm = (e: any) => {
-    e.preventDefault();
-    const mess = {
-      type: "sent",
-      timestamp: new Date(),
-      message,
-    };
-    sendMessage(mess as Message);
-    if (socketInstance.current)
-      socketInstance.current.send(JSON.stringify(mess));
-    setMessage("");
+    if (e.which === 13 && !e.shiftKey) {
+      e.preventDefault();
+
+      alert("sent");
+    }
+    // const mess = {
+    //   type: "sent",
+    //   timestamp: new Date(),
+    //   message,
+    // };
+    // sendMessage(mess as Message);
+    // if (socketInstance.current)
+    //   socketInstance.current.send(JSON.stringify(mess));
+    // setMessage("");
   };
 
-  useEffect(() => {
-    if (socketInstance.current) return;
-    const ws = new WebSocket("ws://localhost:8081/");
-
-    socketInstance.current = ws;
-    ws.onmessage = (ev) => console.log(ev.data);
-  }, []);
+  // useEffect(() => {}, []);
 
   return (
-    <form className={styles.form} onSubmit={_handleForm}>
+    <form className={styles.form}>
       <textarea
         onChange={(e) => setMessage(e.target.value)}
         value={message}
+        placeholder="Aa"
+        rows={(message.match(/\n/g)?.length || 0) + 1}
+        onKeyDown={_handleForm}
       ></textarea>
-      <input type="submit" value="Send"></input>
     </form>
   );
 };
